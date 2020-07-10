@@ -13,7 +13,9 @@ pipeline {
             } //end of post
 
         stage('Deploy in Staging Environment') {
-            build job: 'Deploy_Application_Staging_Env'
+             steps{
+                 build job: 'Deploy_Application_Staging_Env'
+             } //end of steps
             } //end of stage Deploy in Staging Environment 
 
         } //end of stage Build Application 
