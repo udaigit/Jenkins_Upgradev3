@@ -4,20 +4,20 @@ pipeline {
         stage('Build Application') {
             steps {
                 sh 'mvn -f java-tomcat-sample/pom.xml clean package'
-            } //end of steps
+            }
             post {
                 success {
                     echo "Now Archiving the Artifacts...."
                     archiveArtifacts artifacts: '**/*.war'
-                } //end of success
-            } //end of post
+                }
+            }
+        }
+        stage('Deploy in Staging Environment'){
+            steps{
+                build job: 'Deploy_Application_Staging_Env'
 
-        stage('Deploy in Staging Environment') {
-             steps{
-                 build job: 'Deploy_Application_Staging_Env'
-             } //end of steps
-            } //end of stage Deploy in Staging Environment 
-
-        } //end of stage Build Application 
-    } //end of stages
-} //end of pipeline
+            }
+            
+        }
+    }
+}
