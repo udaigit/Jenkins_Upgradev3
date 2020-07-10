@@ -11,11 +11,11 @@ pipeline {
                     archiveArtifacts artifacts: '**/*.war'
                 } //end of success
             } //end of post
-        } //end of stage Build Application
 
         stage('Deploy in Staging Environment') {
             build job: 'Deploy_Application_Staging_Env'
-        } //end of stage Deploy in Staging Environment 
+            } //end of stage Deploy in Staging Environment 
 
+        } //end of stage Build Application 
     } //end of stages
 } //end of pipeline
