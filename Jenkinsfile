@@ -22,5 +22,10 @@ pipeline {
                         echo "Deploying in Production Area"
                   }
             }
+            stage('Deploy ProductionUdai') {
+                  steps {
+                        echo "Deploying in Production Area by Udai"
+                  }
+            }
       }
 } //end of pipline
